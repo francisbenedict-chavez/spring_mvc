@@ -83,14 +83,16 @@ public class AuthenticationController {
   @PostMapping("/register_authorized_user")
   public ResponseEntity<String> register_authUser(
       @RequestBody AuthUserRegisterDto authUserRegisterDto) {
-    if (authUserRepository.existsByUsername(authUserRegisterDto.getUsername())) {
+    if (authUserRepository.existsByUsername(
+        authUserRegisterDto.getUsername())) {
       return new ResponseEntity<>(authUserRegisterDto.getUsername()
           + " is already taken.", HttpStatus.BAD_REQUEST);
     }
 
     Auth_User auth_user = new Auth_User();
     auth_user.setUsername(authUserRegisterDto.getUsername());
-    auth_user.setPassword(passwordEncoder.encode(authUserRegisterDto.getPassword()));
+    auth_user.setPassword(passwordEncoder.encode(
+        authUserRegisterDto.getPassword()));
 
     Auth_Role auth_role = authRoleRepository.findByName("USER")
         .orElseThrow(() -> new RuntimeException("Roles USER not found."));
@@ -117,5 +119,4 @@ public class AuthenticationController {
 
     return new ResponseEntity<>("Sign in successfully!", HttpStatus.OK);
   }
-
 }

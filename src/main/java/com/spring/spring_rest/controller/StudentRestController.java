@@ -182,5 +182,4 @@ public class StudentRestController {
     studentService.deleteStudentById(id);
     return ResponseEntity.ok("Student deleted successfully!");
   }
-  
 }

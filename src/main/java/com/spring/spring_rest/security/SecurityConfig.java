@@ -87,5 +87,4 @@ public class SecurityConfig {
       CustomUserDetailsService userDetailsService) {
     this.userDetailsService = userDetailsService;
   }
-
 }

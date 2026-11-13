@@ -60,5 +60,4 @@ public interface StudentService {
    * @throws StudentNotFoundException if no student has the specified ID
    */
   void deleteStudentById(Long theId);
-  
 }

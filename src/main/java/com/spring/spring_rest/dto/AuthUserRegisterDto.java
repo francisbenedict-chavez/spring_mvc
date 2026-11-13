@@ -28,5 +28,4 @@ public class AuthUserRegisterDto {
   public void setPassword(String password) {
     this.password = password;
   }
-
 }

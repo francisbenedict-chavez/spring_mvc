@@ -55,11 +55,10 @@ public class CustomUserDetailsService implements UserDetailsService {
    * @param roles roles assigned to the user
    * @return the roles as granted authorities
    */
-  private Collection<GrantedAuthority> 
+  private Collection<GrantedAuthority>
       mapRolesToAuthorities(List<Auth_Role> roles) {
     return roles.stream()
         .map(role -> new SimpleGrantedAuthority(role.getName()))
         .collect(Collectors.toList());
   }
-
 }

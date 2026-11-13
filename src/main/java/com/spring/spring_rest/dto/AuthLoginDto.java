@@ -28,5 +28,4 @@ public class AuthLoginDto {
   public void setPassword(String password) {
     this.password = password;
   }
-
 }

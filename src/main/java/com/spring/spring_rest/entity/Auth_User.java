@@ -28,9 +28,9 @@ public class Auth_User {
   private String password;
 
   @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-  @JoinTable(name = "authusers_authroles", 
+  @JoinTable(name = "authusers_authroles",
       joinColumns = @JoinColumn(
-      name = "authuser_id", referencedColumnName = "id"), 
+      name = "authuser_id", referencedColumnName = "id"),
       inverseJoinColumns = @JoinColumn(
       name = "authrole_id", referencedColumnName = "id"))
   private List<Auth_Role> roles = new ArrayList<>();
@@ -38,7 +38,7 @@ public class Auth_User {
   public Auth_User() {}
 
   /**
-   * Creates an authorization user with the specified 
+   * Creates an authorization user with the specified
    * identity, credentials, and roles.
    *
    * @param id the user's identifier
@@ -46,7 +46,8 @@ public class Auth_User {
    * @param password the user's password
    * @param roles the roles assigned to the user
    */
-  public Auth_User(Long id, String username, String password, List<Auth_Role> roles) {
+  public Auth_User(
+      Long id, String username, String password, List<Auth_Role> roles) {
     this.id = id;
     this.username = username;
     this.password = password;
@@ -84,5 +85,4 @@ public class Auth_User {
   public void setRoles(List<Auth_Role> roles) {
     this.roles = roles;
   }
-  
 }
