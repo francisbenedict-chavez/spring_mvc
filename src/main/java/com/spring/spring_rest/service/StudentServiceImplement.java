@@ -18,6 +18,11 @@ public class StudentServiceImplement implements StudentService {
 
   private StudentRepository studentRepository;
 
+  /**
+   * Creates the service with the repository used to store students.
+   *
+   * @param studentRepository repository for student records
+   */
   public StudentServiceImplement(StudentRepository studentRepository) {
     this.studentRepository = studentRepository;
   }

@@ -2,7 +2,6 @@ package com.spring.spring_rest.service;
 
 import com.spring.spring_rest.dto.StudentDto;
 import com.spring.spring_rest.exception.StudentNotFoundException;
-
 import java.util.List;
 
 /**
@@ -61,4 +60,5 @@ public interface StudentService {
    * @throws StudentNotFoundException if no student has the specified ID
    */
   void deleteStudentById(Long theId);
+  
 }

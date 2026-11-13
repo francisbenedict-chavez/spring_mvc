@@ -4,12 +4,12 @@ package com.spring.spring_rest.entity;
  * Represents the error details returned by the REST API.
  */
 public class StudentErrorResponse {
+
   private int status;
   private String message;
   private Long timeStamp;
 
-  public StudentErrorResponse() {
-  }
+  public StudentErrorResponse() {}
 
   /**
    * Indicates that a requested student could not be found.

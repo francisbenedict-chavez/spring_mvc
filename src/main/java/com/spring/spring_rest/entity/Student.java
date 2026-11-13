@@ -32,8 +32,7 @@ public class Student {
   @Column(name = "email", nullable = false, unique = true)
   private String email;
 
-  public Student() {
-  }
+  public Student() {}
 
   /**
    * Creates a new student with the specified identifier and personal details.

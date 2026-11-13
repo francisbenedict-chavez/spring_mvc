@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * responding.
  */
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/")
 public class DemoRestController {
 
   /**
@@ -17,7 +17,7 @@ public class DemoRestController {
    *
    * @return the greeting text
    */
-  @GetMapping("/hello")
+  @GetMapping("/")
   public String sayHello() {
     return "Hello World!";
   }
