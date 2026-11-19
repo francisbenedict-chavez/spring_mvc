@@ -92,11 +92,11 @@ public class StudentExceptionHandler {
   public ResponseEntity<StudentErrorResponse> handleAuthenticationException(
           AuthenticationException ex) {
       
-      StudentErrorResponse err = new StudentErrorResponse();
-      err.setStatus(HttpStatus.UNAUTHORIZED.value());
-      err.setMessage("Username or password is incorrect");
-      err.setTimeStamp(System.currentTimeMillis());
+    StudentErrorResponse err = new StudentErrorResponse();
+    err.setStatus(HttpStatus.UNAUTHORIZED.value());
+    err.setMessage("Username or password is incorrect");
+    err.setTimeStamp(System.currentTimeMillis());
 
-      return new ResponseEntity<>(err, HttpStatus.UNAUTHORIZED);
+    return new ResponseEntity<>(err, HttpStatus.UNAUTHORIZED);
   }
 }
