@@ -8,6 +8,12 @@ public class AuthLoginDto {
   private String username;
   private String password;
 
+  /**
+   * Creates login credentials with the supplied username and password.
+   *
+   * @param username the user's username
+   * @param password the user's password
+   */
   public AuthLoginDto(String username, String password) {
     this.username = username;
     this.password = password;

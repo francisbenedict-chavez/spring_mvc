@@ -27,6 +27,12 @@ public class StudentServiceImplement implements StudentService {
     this.studentRepository = studentRepository;
   }
 
+  /**
+   * Creates a student from the supplied data.
+   *
+   * @param theStudentDto student data to create
+   * @return the created student
+   */
   @Override
   public StudentDto createStudent(StudentDto theStudentDto) {
     Student theStudent = StudentMapper.mapToStudent(theStudentDto);
@@ -34,6 +40,13 @@ public class StudentServiceImplement implements StudentService {
     return StudentMapper.mapToStudentDto(saved);
   }
 
+  /**
+   * Retrieves a student by its identifier.
+   *
+   * @param theId identifier of the student
+   * @return the requested student
+   * @throws StudentNotFoundException if no matching student exists
+   */
   @Override
   public StudentDto getStudentById(Long theId) {
     Student student = studentRepository.findById(theId)
@@ -43,6 +56,11 @@ public class StudentServiceImplement implements StudentService {
     return StudentMapper.mapToStudentDto(student);
   }
 
+  /**
+   * Retrieves all students.
+   *
+   * @return all stored students
+   */
   @Override
   public List<StudentDto> getAllStudents() {
     List<Student> students = studentRepository.findAll();
@@ -52,6 +70,14 @@ public class StudentServiceImplement implements StudentService {
         .collect(Collectors.toList());
   }
 
+  /**
+   * Replaces the data of an existing student.
+   *
+   * @param theId identifier of the student
+   * @param theStudentDto replacement student data
+   * @return the updated student
+   * @throws StudentNotFoundException if no matching student exists
+   */
   @Override
   public StudentDto updateStudent(Long theId, StudentDto theStudentDto) {
     Student student = studentRepository.findById(theId)
@@ -66,6 +92,14 @@ public class StudentServiceImplement implements StudentService {
     return StudentMapper.mapToStudentDto(saved);
   }
 
+  /**
+   * Updates the non-null fields of an existing student.
+   *
+   * @param theId identifier of the student
+   * @param theStudentDto fields to update
+   * @return the patched student
+   * @throws StudentNotFoundException if no matching student exists
+   */  
   @Override
   public StudentDto patchStudent(Long theId, StudentDto theStudentDto) {
     Student student = studentRepository.findById(theId)
@@ -85,7 +119,13 @@ public class StudentServiceImplement implements StudentService {
     Student saved = studentRepository.save(student);
     return StudentMapper.mapToStudentDto(saved);
   }
-
+  
+  /**
+   * Deletes a student by its identifier.
+   *
+   * @param theId identifier of the student
+   * @throws StudentNotFoundException if no matching student exists
+   */
   @Override
   public void deleteStudentById(Long theId) {
     studentRepository.findById(theId)

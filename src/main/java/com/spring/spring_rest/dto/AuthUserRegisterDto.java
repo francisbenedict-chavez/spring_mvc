@@ -7,7 +7,13 @@ public class AuthUserRegisterDto {
 
   private String username;
   private String password;
-
+  
+  /**
+   * Creates user registration data.
+   *
+   * @param username the username to register
+   * @param password the password to register
+   */
   public AuthUserRegisterDto(String username, String password) {
     this.username = username;
     this.password = password;

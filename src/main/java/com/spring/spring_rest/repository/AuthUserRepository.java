@@ -11,7 +11,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface AuthUserRepository extends JpaRepository<Auth_User, Long> {
 
+  /**
+   * Finds a user by username.
+   *
+   * @param theUsername the username
+   * @return the matching user, if present
+   */
   Optional<Auth_User> findByUsername(String theUsername);
 
+  /**
+   * Checks whether a username is already registered.
+   *
+   * @param theUsername the username to check
+   * @return {@code true} if the username exists
+   */
   Boolean existsByUsername(String theUsername);
 }

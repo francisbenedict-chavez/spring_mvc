@@ -12,7 +12,11 @@ public class StudentErrorResponse {
   public StudentErrorResponse() {}
 
   /**
-   * Indicates that a requested student could not be found.
+   * Creates a student error response.
+   *
+   * @param status the HTTP status code
+   * @param message the error message
+   * @param timeStamp the time the error occurred
    */
   public StudentErrorResponse(int status, String message, Long timeStamp) {
     this.status = status;
