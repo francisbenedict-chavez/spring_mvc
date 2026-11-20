@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -24,6 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Provides REST endpoints for creating, retrieving, updating, and deleting
  * students.
+ * Import previously used: import
+ * org.springframework.web.bind.annotation.CrossOrigin;
+ * Removed @CrossOrigin(origins = "*")
  *
  * <p>
  * The main collection endpoints delegate to {@link StudentService}.
@@ -32,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/students")
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
 public class StudentRestController {
 
   private List<Student> theStudents;
