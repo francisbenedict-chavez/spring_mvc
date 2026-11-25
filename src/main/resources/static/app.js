@@ -1,7 +1,11 @@
 const API_URL = "http://localhost:8080/api/students";
 const API_AUTH = "http://localhost:8080/api/auth";
 
-// create a student
+/**
+ * Creates a student using the REST API.
+ * @param {StudentData} studentData - The student details to submit.
+ * @returns {Promise<void>}
+ */
 async function createStudent(studentData) {
   try {
     const response = await fetch(API_URL, {
@@ -14,6 +18,7 @@ async function createStudent(studentData) {
     if (response.ok) {
       alert("Student added successfully!");
       resetForm();
+      getAllStudents();
     } else {
       alert("Error adding student.");
     }
@@ -22,6 +27,11 @@ async function createStudent(studentData) {
   }
 }
 
+/**
+ * Handles student form submissions.
+ * @param {SubmitEvent} e - The form submit event.
+ * @returns {void}
+ */
 document.getElementById("studentForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -41,6 +51,10 @@ document.getElementById("studentForm").addEventListener("submit", function (e) {
   }
 });
 
+/**
+ * Clears the student form and restores the submit button.
+ * @returns {void}
+ */
 function resetForm() {
   document.getElementById("studentId").value = "";
   document.getElementById("studentForm").reset();
@@ -50,6 +64,10 @@ function resetForm() {
   submitBtn.style.backgroundColor = "28a745";
 }
 
+/**
+ * Retrieves all students and renders them in the table.
+ * @returns {Promise<void>}
+ */
 async function getAllStudents() {
   try {
     const response = await fetch(API_URL, {
@@ -82,6 +100,11 @@ async function getAllStudents() {
   }
 }
 
+/**
+ * Loads a student into the form for editing.
+ * @param {number|string} id - The student's ID.
+ * @returns {Promise<void>}
+ */
 async function initializeStudentFormById(id) {
   try {
     const response = await fetch(`${API_URL}/${id}`, {
@@ -108,6 +131,12 @@ async function initializeStudentFormById(id) {
   }
 }
 
+/**
+ * Updates an existing student.
+ * @param {number|string} id - The student's ID.
+ * @param {StudentData} studentData - The updated student details.
+ * @returns {Promise<void>}
+ */
 async function updateStudent(id, studentData) {
   try {
     const response = await fetch(`${API_URL}/${id}`, {
@@ -129,6 +158,11 @@ async function updateStudent(id, studentData) {
   }
 }
 
+/**
+ * Deletes a student after user confirmation.
+ * @param {number|string} id - The student's ID.
+ * @returns {Promise<void>}
+ */
 async function deleteStudent(id) {
   if (confirm("Are you sure you want to delete this student?")) {
     try {
@@ -150,6 +184,11 @@ async function deleteStudent(id) {
   }
 }
 
+/**
+ * Logs a user in using session authentication.
+ * @param {LoginDto} loginDto - The login credentials.
+ * @returns {Promise<void>}
+ */
 async function loginUser(loginDto) {
   try {
     const response = await fetch(`${API_AUTH}/auth_login_session`, {
@@ -170,6 +209,10 @@ async function loginUser(loginDto) {
   }
 }
 
+/**
+ * Logs out the current user and clears browser state.
+ * @returns {Promise<void>}
+ */
 async function logoutUser() {
   try {
     await fetch(`${API_AUTH}/logout`, {
@@ -196,8 +239,9 @@ async function logoutUser() {
   }
 }
 
+/**
+ * Loads the student list after the page finishes loading.
+ * @function
+ * @name loadStudentsOnPageLoad
+ */
 document.addEventListener("DOMContentLoaded", getAllStudents);
-
-// window.onload = function() {
-//     getAllStudents();
-// };

@@ -1,3 +1,11 @@
+/**
+ * Validates the student form fields.
+ *
+ * Checks that the first name and last name contain at least two characters
+ * and that the email address has a valid format.
+ *
+ * @returns {boolean} Returns true when all fields are valid; otherwise, false.
+ */
 function validateStudentForm() {
   let isValid = true;
 
@@ -49,6 +57,11 @@ function validateStudentForm() {
   return isValid;
 }
 
+/**
+ * Removes invalid field styles and clears existing validation messages.
+ *
+ * @returns {void}
+ */
 function clearValidationStyles() {
   const fields = ["firstName", "lastName", "email"];
   fields.forEach((fieldId) => {
